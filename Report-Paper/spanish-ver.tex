@@ -1,0 +1,164 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{orcidlink}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Protector analógico de sobrecorriente para motores DC\\}
+\author{
+    \IEEEauthorblockN{Ana Freitez\, \orcidlink{0009-0009-6506-499X}}
+    \IEEEauthorblockA{\textit{Facultad de Ingeniería,} \\ 
+    \textit{Licenciatura en Ingeniería Mecatrónica} \\ 
+    \textit{Universidad Latina de Panamá} \\ 
+    Ciudad de Panamá, Panamá}
+    \and
+    \IEEEauthorblockN{Cristell Cedeño\, \orcidlink{0009-0002-2617-663X}}
+    \IEEEauthorblockA{\textit{Facultad de Ingeniería,} \\ 
+    \textit{Licenciatura en Ingeniería Mecatrónica} \\ 
+    \textit{Universidad Latina de Panamá} \\ 
+    Ciudad de Panamá, Panamá}
+}
+
+\maketitle
+
+\begin{abstract}
+% Resumen breve (150-250 palabras): objetivo del proyecto, circuito implementado
+% (integrador y derivador en cascada con amplificadores operacionales),
+% metodología utilizada (simulación y/o implementación física) y principales
+% resultados obtenidos.
+[Completar resumen del proyecto aquí.]
+\end{abstract}
+
+\begin{IEEEkeywords}
+[Completar}
+\end{IEEEkeywords}
+
+\section{Introducción}
+% Contexto general del tema, motivación del proyecto y objetivo principal.
+% Mencionar brevemente qué problema resuelve un circuito integrador/derivador
+% en cascada y por qué es relevante estudiarlo.
+[Completar introducción.]
+
+\subsection{Objetivos}
+\begin{itemize}
+    \item Objetivo general: [Completar]
+    \item Objetivos específicos:
+    \begin{itemize}
+        \item Completar
+        \item Completar
+    \end{itemize}
+\end{itemize}
+
+\section{Marco Teórico}
+
+[Completar.]
+
+\section{Metodología}
+
+\subsection{Diseño del Circuito}
+[Completar descripción del diseño.]
+
+\subsection{Materiales y Equipo}
+\begin{table}[htbp]
+\caption{Lista de Materiales y Equipos}
+\label{tab:materiales}
+\centering
+\begin{tabular}{l l c}
+\hline
+\textbf{Componente} & \textbf{Especificación} & \textbf{Cantidad} \\
+\hline
+[Completar.] & [Completar.] & [Completar.]\\
+[Completar.] & [Completar.] & [Completar.]\\
+[Completar.] & [Completar.] & [Completar.]\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Procedimiento}
+[Completar.] & [Completar.] & [Completar.]\\
+
+\section{Resultados}
+
+\subsection{Simulación}
+
+[Completar descripción de los resultados de simulación.]
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Esquematico.png}
+	\caption{Esquemático simulado en Proteus 8 Professional}
+	\label{fig:esquematico}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Simulacion_osciloscopio.png}
+	\caption{Formas de onda obtenidas en el osciloscopio virtual: señal de entrada, salida del integrador y salida del derivador.}
+	\label{fig:sim_osc}
+\end{figure}
+
+\subsection{Implementación Física}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Montaje_fisico.jpeg}
+	\caption{Montaje físico del circuito en protoboard}
+	\label{fig:montaje_fisico}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Captura_osciloscopio_real.png}
+	\caption{Funcionamiento real de la protección}
+	\label{fig:capturaosciloscopioreal}
+\end{figure}
+
+\subsection{Datos Medidos}
+% Completar la tabla con los valores obtenidos en simulación y/o en el
+% laboratorio para distintas frecuencias de entrada.
+\begin{table}[htbp]
+\caption{Amplitudes de Salida Medidas en Función de la Frecuencia de Entrada}
+\label{tab:datos}
+\centering
+\begin{tabular}{c c c c}
+\hline
+\textbf{$f$ (Hz)} & \textbf{$V_{in}$ (V)} &
+\textbf{$V_{out,int}$ (V)} & \textbf{$V_{out,der}$ (V)}\\
+\hline
+25    & 4 & 4.400 V & 444.0 mV \\
+50    & 4 & [Completar] & [Completar]\\
+100   & 4 & [Completar] & [Completar] \\
+200   & 4 & [Completar] & [Completar] \\
+500   & 4 & [Completar] & [Completar] \\
+1000  & 4 & [Completar] & [Completar] \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Análisis de Resultados}
+% Comparar los resultados de simulación con los resultados físicos.
+% Explicar cualquier diferencia observada (ruido, saturación, tolerancias
+% de componentes, etc.) y relacionarlos con la teoría de la Sección II.
+[Completar análisis comparando teoría, simulación e implementación física.]
+
+\section{Conclusiones}
+% Resumir los hallazgos principales y si se cumplieron los objetivos
+% planteados en la introducción.
+[Completar conclusiones.]
+
+\begin{thebibliography}{00}
+\bibitem{b1} [Completar.]
+\bibitem{b2} [Completar.]
+\bibitem{b3} [Completar.]
+\end{thebibliography}
+
+\end{document}

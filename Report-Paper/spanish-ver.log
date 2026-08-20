@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.15)  20 AUG 2026 02:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.15)  20 AUG 2026 11:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -985,17 +985,13 @@ Before submitting the final camera ready copy, remember to:
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `spanish-ver.out' has not changed.
 (rerunfilecheck)             Checksum: CB231FFE08A86D52E818CA26250FD2A6;2487.
  ) 
 Here is how much of TeX's memory you used:
  21886 strings out of 467871
  413684 string characters out of 5418860
- 813678 words of memory out of 5000000
+ 813679 words of memory out of 5000000
  50371 multiletter control sequences out of 15000+600000
  667436 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

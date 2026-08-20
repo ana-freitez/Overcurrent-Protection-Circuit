@@ -40,33 +40,74 @@
 \end{abstract}
 
 \begin{IEEEkeywords}
-[Completar}
+[Completar]
 \end{IEEEkeywords}
 
 \section{Introducción}
-% Contexto general del tema, motivación del proyecto y objetivo principal.
-% Mencionar brevemente qué problema resuelve un circuito integrador/derivador
-% en cascada y por qué es relevante estudiarlo.
-[Completar introducción.]
+Los motores de corriente continua han desempeñado un papel crucial en el avance de la ingeniería y la tecnología eléctrica a lo largo de la historia. La máquina de Gramme fue la máquina eléctrica capaz defuncionar eficazmente como motor, este desarrollo impulsó nuevas innovaciones.\\
+
+Inventores como los fueron Edison y Tesla realizaron importantes contribuciones en la tecnología de motores magneticos de corriente continua.\\
+
+A lo largo de las décadas, estas y otras mejoras popularizaron los motores de corriente continua en diversas aplicaciones, como maquinaria industrial, transporte y electrodomésticos.\\
+
+Esta popularida se debe a la simplicidad de su principio de control, no obstante es esto mismo lo que supone un riesgo constante. Situaciones como una sobrecarga, un cortocircuito, un fallo a tierra on el bloqueo mecánico del rotor provocan un incremento abrupto de la corriente consumida, muy por encima de su valor nominal de operación.\\
+
+\subsection{Planteamiento del problema}
+Cuando un motor DC opera bajo condiciones de sobrecorriente sostenida, se altera su eficiencia y la estabilidad de la districución de energía. La sobrecorriente no solo provoca daños en los equipos e interrupciones dle servicio, sino que también causa caídas de tensión y distorciones en la calidad de la energía.\\
+
+Asimismo, la energía disipada en forma de calor puede superar la capacidad térmica del devanado provocando en casos extremos la destrucción total del motor. \\
+También esta exposición prolongada incrementa los gastos operativos debido a paradas no programadad, reemplazo de componentes y mantenimientos correctivos repetitivos.\\
+
+Frente a este panorama, un circuito de protección puramente analógico resulta atractivo: no depende de software, responde de forma prácticamente instantánea ante la condición de falla y puede implementarse con componentes económicos y de uso extendido.
 
 \subsection{Objetivos}
 \begin{itemize}
-    \item Objetivo general: [Completar]
+    \item Objetivo general: Diseñar, simular y construir un circuito protector analógico de sobrecorriente para motores DC, capaz de detectar corrientes que excedan un umbral configurable y desconectar automáticamente la carga para evitar daños al motor.\\
     \item Objetivos específicos:
     \begin{itemize}
-        \item Completar
-        \item Completar
+        \item \textbf{Diseñar la etapa comparadora con umbral de disparo ajustable}, permitiendo asi calibrar la corriente máxima admisible antes de activar la protección.
+        \item \textbf{Diseñar la etapa de conmutación y actuación}. que es la encargada de interrumpir físicamente la alimentación de la carga cuando se detecte una condición de sobrecorriente.
+        \item \textbf{Incorporar elementos de protección e indicación}, para suprimir picos inductivos y señalar visualmente el estado de disparo del sistema.
+        \item \textbf{Validar el funcionamiento del circuito}, mediante simulación y pruebas experimentales, verificar que el sistema actúa correctamente ante condiciones de sobrecorriente controlada.\\	
     \end{itemize}
 \end{itemize}
 
 \section{Marco Teórico}
 
-[Completar.]
+Un motor DC convierte energía eléctrica en energía mecánica como resultado de la interacción entre campos magnetivos y corrientes electricas. Esto se logra mediante los principios fundamentales del electromagnetismo.\\
+
+La sobrecorriente es uno de los problemas más comunes y críticos en los sistemas eléctricos, y representa graves riesgos para los equipos, la infraestructura y la seguridad humana.\\
+
+Las causas más comunes de sobrecorriente en motores DC son: \\
+\begin{itemize}
+	\item Bloqueo mecánico del rotor
+	\item Sobrecarga en el eje
+	\item Cortocircuito en el devanado
+	\item Arranque directo sin limitación
+	
+\end{itemize}
+
+Existen distintas estrategias para proteger un motor DC frente a condiciones de sobrecorriente como:\\
+\begin{itemize}
+	\item Protección pasiva (fusibles): Su principal desventaja es que requieren reemplazo tras cada disparo y su curva de respuesta no siempre se ajusta a las necesidades de protección de motores.
+	\item Protección electromecánica(disyuntores térmicos/magnéticos): Suelen ser mas costosos y voluminosos.
+	\item Protección digital (microcontroladores): Ofrece gran flexibilidad a costa de mayor complejidad y dependencia de firmware.
+	\item Protección analógica (amplificadores operacionales): Adoptado en este proyecto por su simplicidad, bajo costo y tiempo de respuesta casi de inmediato.
+	
+	
+\end{itemize}
 
 \section{Metodología}
 
 \subsection{Diseño del Circuito}
-[Completar descripción del diseño.]
+El circuito se organiza en cuatro partes que trabajan en cascada:\\
+
+\subsubsection{Sensado y amplificación de corriente}
+\subsubsection{Comparador y umbral de disparo}
+\subsubsection{Actuación y protección}
+\subsubsection{Indicación y rearme}
+
+
 
 \subsection{Materiales y Equipo}
 \begin{table}[htbp]
@@ -77,9 +118,19 @@
 \hline
 \textbf{Componente} & \textbf{Especificación} & \textbf{Cantidad} \\
 \hline
-[Completar.] & [Completar.] & [Completar.]\\
-[Completar.] & [Completar.] & [Completar.]\\
-[Completar.] & [Completar.] & [Completar.]\\
+Relé & 12 V & 1\\
+Amplificador operacional & LM358 & 1\\
+Transistor NPN & BC547 & 2\\
+LED verde & 5mm & 1\\
+Interrumptor & - & 1\\
+Diodo & 1N4007 & 1\\
+Resistencia & 1k$\Omega$ & 6\\
+Resistencia & 20k$\Omega$ & 2\\
+Resistencia & 0.1$\Omega$ & 1\\
+Trimmer & 10k$\Omega$ & 1\\
+Motor & 6V CC & 1\\
+Protoboard & - & 1\\
+
 \hline
 \end{tabular}
 \end{table}
@@ -156,8 +207,10 @@
 [Completar conclusiones.]
 
 \begin{thebibliography}{00}
-\bibitem{b1} [Completar.]
-\bibitem{b2} [Completar.]
+\bibitem{b1} [https://www.monolithicpower.com/en/learning/mpscholar/electric-motors/dc-motors/fundamentals]
+\bibitem{b2} [https://www.hvtesters.com/es/what-is-overcurrent-and-how-does-it-affect-electrical-systems/]
+\bibitem{b3} [https://www.exmekgerman.com/blog/what-are-the-protection-methods-for-a-dc-motor-1707111.html]
+\bibitem{b3} [Completar.]
 \bibitem{b3} [Completar.]
 \end{thebibliography}
 

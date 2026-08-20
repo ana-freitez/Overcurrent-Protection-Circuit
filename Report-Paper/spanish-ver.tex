@@ -32,33 +32,32 @@
 \maketitle
 
 \begin{abstract}
-% Resumen breve (150-250 palabras): objetivo del proyecto, circuito implementado
-% (integrador y derivador en cascada con amplificadores operacionales),
-% metodología utilizada (simulación y/o implementación física) y principales
-% resultados obtenidos.
-[Completar resumen del proyecto aquí.]
+Los motores de corriente continua son ampliamente utilizados áreas industriales y educativas, pero son sumamente vulnerables a condiciones de sobrecorriente que pueden ser causadas por bloqueo del rotor, sobrecarga mecánica o cortocircuito, esto puede provocar daño térmico y reducir su vida útil. 
+Este trabajo presenta el diseño de un protector analógico de sobrecorriente basado en el sensado de corriente mediante una resistencia de bajo valor, una etapa de amplificación diferencial y de comparación con umbral de disparo ajustable mediante potenciómetro. 
+Al superarse el umbral configurado, el sistema activa una etapa de conmutación con transistores NPN que energiza un relé, interrumpiendo la alimentación del motor y activando un LED funcionando como indicador, con protección contra picos inductivos y rearme manual. 
+El circuito se diseñó y simuló en Proteus, y posteriormente se implementó físicamente en protoboard, verificando su correcto funcionamiento tanto en condición nominal como ante sobrecorriente forzada. Los resultados muestran que el sistema propuesto ofrece una solución de bajo costo, rápida respuesta y alta confiabilidad, sin depender de otros tipos de sistemas.\\
 \end{abstract}
 
 \begin{IEEEkeywords}
-[Completar]
+Motor DC, sobrecorriente, protección analógica, seguridad eléctrica, sensor de correinte
 \end{IEEEkeywords}
 
 \section{Introducción}
-Los motores de corriente continua han desempeñado un papel crucial en el avance de la ingeniería y la tecnología eléctrica a lo largo de la historia. La máquina de Gramme fue la máquina eléctrica capaz defuncionar eficazmente como motor, este desarrollo impulsó nuevas innovaciones.\\
+Los motores de corriente continua han desempeñado un papel crucial en el avance de la ingeniería y la tecnología eléctrica a lo largo de la historia. La máquina de Gramme fue la máquina eléctrica capaz defuncionar eficazmente como motor, este desarrollo impulsó nuevas innovaciones.
 
-Inventores como los fueron Edison y Tesla realizaron importantes contribuciones en la tecnología de motores magneticos de corriente continua.\\
+Inventores como los fueron Edison y Tesla realizaron importantes contribuciones en la tecnología de motores magneticos de corriente continua.
 
-A lo largo de las décadas, estas y otras mejoras popularizaron los motores de corriente continua en diversas aplicaciones, como maquinaria industrial, transporte y electrodomésticos.\\
+A lo largo de las décadas, estas y otras mejoras popularizaron los motores de corriente continua en diversas aplicaciones, como maquinaria industrial, transporte y electrodomésticos.
 
-Esta popularida se debe a la simplicidad de su principio de control, no obstante es esto mismo lo que supone un riesgo constante. Situaciones como una sobrecarga, un cortocircuito, un fallo a tierra on el bloqueo mecánico del rotor provocan un incremento abrupto de la corriente consumida, muy por encima de su valor nominal de operación.\\
+Esta popularida se debe a la simplicidad de su principio de control, no obstante es esto mismo lo que supone un riesgo constante. Situaciones como una sobrecarga, un cortocircuito, un fallo a tierra on el bloqueo mecánico del rotor provocan un incremento abrupto de la corriente consumida, muy por encima de su valor nominal de operación.
 
 \subsection{Planteamiento del problema}
-Cuando un motor DC opera bajo condiciones de sobrecorriente sostenida, se altera su eficiencia y la estabilidad de la districución de energía. La sobrecorriente no solo provoca daños en los equipos e interrupciones dle servicio, sino que también causa caídas de tensión y distorciones en la calidad de la energía.\\
+Cuando un motor DC opera bajo condiciones de sobrecorriente sostenida, se altera su eficiencia y la estabilidad de la districución de energía. La sobrecorriente no solo provoca daños en los equipos e interrupciones dle servicio, sino que también causa caídas de tensión y distorciones en la calidad de la energía.
 
-Asimismo, la energía disipada en forma de calor puede superar la capacidad térmica del devanado provocando en casos extremos la destrucción total del motor. \\
-También esta exposición prolongada incrementa los gastos operativos debido a paradas no programadad, reemplazo de componentes y mantenimientos correctivos repetitivos.\\
+Asimismo, la energía disipada en forma de calor puede superar la capacidad térmica del devanado provocando en casos extremos la destrucción total del motor. 
+También esta exposición prolongada incrementa los gastos operativos debido a paradas no programadad, reemplazo de componentes y mantenimientos correctivos repetitivos.
 
-Frente a este panorama, un circuito de protección puramente analógico resulta atractivo: no depende de software, responde de forma prácticamente instantánea ante la condición de falla y puede implementarse con componentes económicos y de uso extendido.
+Frente a este panorama, un circuito de protección analógico resulta relevante ya que no depende de software, responde de forma prácticamente instantánea ante la condición de falla y puede implementarse con componentes económicos y de uso extendido.
 
 \subsection{Objetivos}
 \begin{itemize}
@@ -68,93 +67,115 @@ Frente a este panorama, un circuito de protección puramente analógico resulta 
         \item \textbf{Diseñar la etapa comparadora con umbral de disparo ajustable}, permitiendo asi calibrar la corriente máxima admisible antes de activar la protección.
         \item \textbf{Diseñar la etapa de conmutación y actuación}. que es la encargada de interrumpir físicamente la alimentación de la carga cuando se detecte una condición de sobrecorriente.
         \item \textbf{Incorporar elementos de protección e indicación}, para suprimir picos inductivos y señalar visualmente el estado de disparo del sistema.
-        \item \textbf{Validar el funcionamiento del circuito}, mediante simulación y pruebas experimentales, verificar que el sistema actúa correctamente ante condiciones de sobrecorriente controlada.\\	
+        \item \textbf{Validar el funcionamiento del circuito}, mediante simulación y pruebas experimentales, verificar que el sistema actúa correctamente ante condiciones de sobrecorriente controlada.
     \end{itemize}
 \end{itemize}
 
 \section{Marco Teórico}
 
-Un motor DC convierte energía eléctrica en energía mecánica como resultado de la interacción entre campos magnetivos y corrientes electricas. Esto se logra mediante los principios fundamentales del electromagnetismo.\\
+Un motor DC convierte energía eléctrica en energía mecánica como resultado de la interacción entre campos magnetivos y corrientes electricas. Esto se logra mediante los principios fundamentales del electromagnetismo.
 
 La sobrecorriente es uno de los problemas más comunes y críticos en los sistemas eléctricos, y representa graves riesgos para los equipos, la infraestructura y la seguridad humana.\\
 
-Las causas más comunes de sobrecorriente en motores DC son: \\
+Las causas más comunes de sobrecorriente en motores DC son: 
+
 \begin{itemize}
 	\item Bloqueo mecánico del rotor
 	\item Sobrecarga en el eje
 	\item Cortocircuito en el devanado
-	\item Arranque directo sin limitación
-	
+	\item Arranque directo sin limitación\\
 \end{itemize}
 
-Existen distintas estrategias para proteger un motor DC frente a condiciones de sobrecorriente como:\\
+Existen distintas estrategias para proteger un motor DC frente a condiciones de sobrecorriente como:
+
 \begin{itemize}
 	\item Protección pasiva (fusibles): Su principal desventaja es que requieren reemplazo tras cada disparo y su curva de respuesta no siempre se ajusta a las necesidades de protección de motores.
 	\item Protección electromecánica(disyuntores térmicos/magnéticos): Suelen ser mas costosos y voluminosos.
 	\item Protección digital (microcontroladores): Ofrece gran flexibilidad a costa de mayor complejidad y dependencia de firmware.
 	\item Protección analógica (amplificadores operacionales): Adoptado en este proyecto por su simplicidad, bajo costo y tiempo de respuesta casi de inmediato.
-	
-	
 \end{itemize}
 
 \section{Metodología}
 
 \subsection{Diseño del Circuito}
-El circuito se organiza en cuatro partes que trabajan en cascada:\\
+El circuito se organiza en cuatro partes que trabajan linealmente:
 
-\subsubsection{Sensado y amplificación de corriente}
-\subsubsection{Comparador y umbral de disparo}
-\subsubsection{Actuación y protección}
-\subsubsection{Indicación y rearme}
+\subsubsection{\textbf{Sensado y amplificación de corriente\\}}
+La corriente hacia el motor pasa por la resitencia \textbf{R9 (0.25$\Omega$)}, generando una caída de tensión pproporcional \textbf{($V=I \times R9$)}. Al ser esta una señal muy pequeña, sea amplifica con el amplificador configurado como diferencial, mediante R2, R3, R4 y R5.
 
+\subsubsection{\textbf{Comparador y umbral de disparo\\}}
+La señal amplificada además ingresa al mismo amplificador ahora configurado como comparador. Su entrada inversora recibe una tensión de referencia ajustable por el potenciómetro \textbf{R10 (10k$\Omega$)}, con el cual se calibra el umbral de corriente al que debe dispararse la protección.
+Mientras la señal amplificada no supere esa refencia, la salida permanecerá en reposo, pero, al superarla, conmuta y activa la etapa de actuación.
 
+\subsubsection{\textbf{Actuación y protección\\}}
+La salida del amplificador dispara los transistores conectados, estos a su vez energizan la bobina relé. Al activarse, el relé interrumpe físicamente la alimentación hacia el motor, desconectandolo. El diodo, colocado en paralelo al relé, absorbe el pico de tensión inductivo generado al conmutar, protegiendo a los transistores.
+
+\subsubsection{\textbf{Indicación y rearme}}
+El LED (con su resistencia limitadora \textbf{R8}) se enciende junto con la activacion del segundo transistor, indicando visualmente que la protección se disparó. El sistema queda fijado en ese estado hasta que se presioné el pulsador, el cual restablece el circuito a su condición normal y permita reconectar el motor.
 
 \subsection{Materiales y Equipo}
-\begin{table}[htbp]
-\caption{Lista de Materiales y Equipos}
-\label{tab:materiales}
-\centering
-\begin{tabular}{l l c}
-\hline
-\textbf{Componente} & \textbf{Especificación} & \textbf{Cantidad} \\
-\hline
-Relé & 12 V & 1\\
-Amplificador operacional & LM358 & 1\\
-Transistor NPN & BC547 & 2\\
-LED verde & 5mm & 1\\
-Interrumptor & - & 1\\
-Diodo & 1N4007 & 1\\
-Resistencia & 1k$\Omega$ & 6\\
-Resistencia & 20k$\Omega$ & 2\\
-Resistencia & 0.1$\Omega$ & 1\\
-Trimmer & 10k$\Omega$ & 1\\
-Motor & 6V CC & 1\\
-Protoboard & - & 1\\
+	\begin{table}[h]
+		\caption{Lista de Materiales y Equipos}
+		\label{tab:materiales}
+		\centering
+		\begin{tabular}{l l c}
+			\hline
+			\textbf{Componente} & \textbf{Especificación} & \textbf{Cantidad} \\
+			\hline
+			Relé & 12 V & 1\\
+			Amplificador operacional & LM358 & 1\\
+			Transistor NPN & BC547 & 2\\
+			LED verde & 5mm & 1\\
+			Pulsador & - & 1\\
+			Diodo & 1N4007 & 1\\
+			Resistencia & 1k$\Omega$ & 6\\
+			Resistencia & 20k$\Omega$ & 2\\
+			Resistencia & 0.1$\Omega$ & 1\\
+			Trimmer & 10k$\Omega$ & 1\\
+			Motor & 6V CC & 1\\
+			Protoboard & - & 1\\
+			\hline
+		\end{tabular}
+	\end{table}
 
-\hline
-\end{tabular}
-\end{table}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Rele}
+	\caption{Relé}
+	\label{fig:rele}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../../Trimmer}
+	\caption{Trimmer / Potenciometro}
+	\label{fig:trimmer}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Amplificador}
+	\caption{Amplificador operacional}
+	\label{fig:amplificador}
+\end{figure}
 
 \subsection{Procedimiento}
-[Completar.] & [Completar.] & [Completar.]\\
+Se diseñó el circuito y se simuló en Proteus para validar las conexiones entre etapas y definir la lista de materiales necesaria antes de adquirir los componentes físicos.\\
+
+Con el diseño ya validado en simulación, se adquirieron los componentes y se armó el circuito completo en protoboard.
+Se calibró el potenciómetro para fijar el umbral de corriente de disparo deseado, verificando con multímetro la tensión de referencia resultante en la entrada del comparador.\\
+
+Finalmente, se verificó el funcionamiento del circuito aplicando corriente nominal al motor, comprobando que la protección permanece inactiva, y forzando una condición de sobrecorriente, comprobando el disparo del relé, el encendido del LED indicador y el correcto rearme del sistema mediante el pulsador.
 
 \section{Resultados}
 
 \subsection{Simulación}
 
-[Completar descripción de los resultados de simulación.]
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{Esquematico.png}
+	\includegraphics[width=0.7\linewidth]{../Esquematico}
 	\caption{Esquemático simulado en Proteus 8 Professional}
-	\label{fig:esquematico}
-\end{figure}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Simulacion_osciloscopio.png}
-	\caption{Formas de onda obtenidas en el osciloscopio virtual: señal de entrada, salida del integrador y salida del derivador.}
-	\label{fig:sim_osc}
+	\label{fig:esq_sim}
 \end{figure}
 
 \subsection{Implementación Física}
@@ -166,52 +187,15 @@ Protoboard & - & 1\\
 	\label{fig:montaje_fisico}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{Captura_osciloscopio_real.png}
-	\caption{Funcionamiento real de la protección}
-	\label{fig:capturaosciloscopioreal}
-\end{figure}
-
-\subsection{Datos Medidos}
-% Completar la tabla con los valores obtenidos en simulación y/o en el
-% laboratorio para distintas frecuencias de entrada.
-\begin{table}[htbp]
-\caption{Amplitudes de Salida Medidas en Función de la Frecuencia de Entrada}
-\label{tab:datos}
-\centering
-\begin{tabular}{c c c c}
-\hline
-\textbf{$f$ (Hz)} & \textbf{$V_{in}$ (V)} &
-\textbf{$V_{out,int}$ (V)} & \textbf{$V_{out,der}$ (V)}\\
-\hline
-25    & 4 & 4.400 V & 444.0 mV \\
-50    & 4 & [Completar] & [Completar]\\
-100   & 4 & [Completar] & [Completar] \\
-200   & 4 & [Completar] & [Completar] \\
-500   & 4 & [Completar] & [Completar] \\
-1000  & 4 & [Completar] & [Completar] \\
-\hline
-\end{tabular}
-\end{table}
-
-\section{Análisis de Resultados}
-% Comparar los resultados de simulación con los resultados físicos.
-% Explicar cualquier diferencia observada (ruido, saturación, tolerancias
-% de componentes, etc.) y relacionarlos con la teoría de la Sección II.
-[Completar análisis comparando teoría, simulación e implementación física.]
-
 \section{Conclusiones}
-% Resumir los hallazgos principales y si se cumplieron los objetivos
-% planteados en la introducción.
-[Completar conclusiones.]
+Con este proyecto logramos diseñar y probar un protector analógico de sobrecorriente para motores DC. Este trabajo nos demostró que es posible construir una protección funcional usando solo electrónica analógica, sin necesidad de software u otros mecanismos complejos. Además, nos sirvió para reforzar en la práctica temas como los transistores.
+
+Aún así, quedan mejoras pendientes para una futura versión del proyecto, como complementar la protección con un sensor de temperatura, ya que el daño al motor no depende solo de la corriente sino también de cuánto tiempo se mantiene elevada. También se podría agregar un indicador numérico que muestre el valor real de la corriente en vez de solo un LED de encendido/apagado.
 
 \begin{thebibliography}{00}
 \bibitem{b1} [https://www.monolithicpower.com/en/learning/mpscholar/electric-motors/dc-motors/fundamentals]
 \bibitem{b2} [https://www.hvtesters.com/es/what-is-overcurrent-and-how-does-it-affect-electrical-systems/]
 \bibitem{b3} [https://www.exmekgerman.com/blog/what-are-the-protection-methods-for-a-dc-motor-1707111.html]
-\bibitem{b3} [Completar.]
-\bibitem{b3} [Completar.]
 \end{thebibliography}
 
 \end{document}

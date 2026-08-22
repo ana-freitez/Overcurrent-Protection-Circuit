@@ -6,24 +6,6 @@
 
 </p>
 
-<p align="center">
-
-  <b>Analog electronic protection for DC motors, with no microcontroller.</b>
-
-</p>
-
-<p align="center">
-
-  <img src="https://img.shields.io/badge/Electronics-Analog-blue?style=for-the-badge">
-
-  <img src="https://img.shields.io/badge/Motor-DC-orange?style=for-the-badge">
-
-  <img src="https://img.shields.io/badge/LM358-Op--Amp-green?style=for-the-badge">
-
-  <img src="https://img.shields.io/badge/EasyEDA-Design-purple?style=for-the-badge">
-
-</p>
-
 ---
 
 ## 📌 What is this project about?
@@ -79,6 +61,6 @@ flowchart LR
 
     H --> B
 
-    G --> I[💡 Indicator LED]
+    G --> I[💡 LED Indicator]
 
     J[🔘 Push Button<br/>Reset] --> E

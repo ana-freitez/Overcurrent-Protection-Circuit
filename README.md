@@ -2,7 +2,7 @@
 
 <p align="center">
 
-  <img src="Images/Esquematico.png" alt="Overcurrent protection schematic" width="760">
+  <img src="Images/Esquematico.png" alt="Project schematic" width="760">
 
 </p>
 
